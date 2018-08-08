@@ -1,5 +1,5 @@
 using ValueSymbols
-using Base.Test
+using Test
 
 syms = [:car, :boat, :plane]
 @test !isbits(syms[1])
