@@ -4,7 +4,7 @@ using Compat
 import Compat: String
 
 export ValueSymbol
-immutable ValueSymbol
+struct ValueSymbol
     ptr::UInt
     ValueSymbol(sym::Symbol) = new(Ptr{Cchar}(Cstring(sym)))
 end
@@ -33,7 +33,7 @@ end
 Base.isless(vsym1::ValueSymbol, sym2::Symbol) = vsym1 < ValueSymbol(sym2)
 Base.isless(sym1::Symbol, vsym2::ValueSymbol) = ValueSymbol(sym1) < vsym2
 
-typealias SerType begin
+const SerType = begin
     AbstractSerializer
 end
 
